@@ -9,6 +9,7 @@ keymap.set('n', '<C-Right>', ':tabnext<CR>') -- Move to the next tab
 keymap.set('n', '<C-Left>', ':tabprevious<CR>') -- Move to the previous tab
 
 -- ## Text Editing ##
+keymap.set('n', '<C-a>', 'gg<S-v>G') -- Select all
 keymap.set('n', 'U', '<C-R>', { noremap = true, silent = true }) -- Redo
 keymap.set('n', 'dw', 'vb"_d') -- Delete a word backwards
 keymap.set('v', 'J', ":m '>+1<CR>gv=gv") -- Move selection down

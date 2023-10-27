@@ -60,6 +60,7 @@ return require('packer').startup(function(use)
   use 'tpope/vim-repeat'
   use 'tpope/vim-commentary'
   use 'tpope/vim-endwise'
+  use 'kqito/vim-easy-replace'
   use 'terryma/vim-smooth-scroll'
   use 'mbbill/undotree'
   use 'windwp/nvim-autopairs'
