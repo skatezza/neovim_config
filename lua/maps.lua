@@ -3,7 +3,7 @@ local keymap = vim.keymap
 
 -- ## File Operations ##
 keymap.set('n', '<Leader><Space>', ':w<CR>') -- Save
-keymap.set('n', '<Leader>j', ':q<cr>') -- Quit
+keymap.set('n', '<Leader>q', ':q<cr>') -- Quit
 keymap.set('n', '<Leader>cd', ':cd %:p:h<CR>', { noremap = true, silent = true }) -- Change directory to the file's directory
 keymap.set('n', '<C-Right>', ':tabnext<CR>') -- Move to the next tab
 keymap.set('n', '<C-Left>', ':tabprevious<CR>') -- Move to the previous tab
@@ -31,9 +31,9 @@ keymap.set('n', '<C-j>', '<C-d>zz') -- Scroll down
 keymap.set('n', '<C-k>', '<C-u>zz') -- Scroll up
 keymap.set('n', '<C-d>', '<C-d>zz') -- Scroll down
 keymap.set('n', '<C-u>', '<C-u>zz') -- Scroll up
-keymap.set('n', '<leader>s', '/', { noremap = true, silent = true }) -- Search
+keymap.set('n', '<Leader>f', '/', { noremap = true, silent = true }) -- Search
 keymap.set('n', '<C-f>', '/', { noremap = true, silent = true }) -- Search
-keymap.set('n', '+', '<C-a>') -- Increment
+keymap.set('n', '+', '<C-l>') -- Increment
 keymap.set('n', '-', '<C-x>') -- Decrement
 keymap.set('n', 'H', '^') -- Jump to start of line
 keymap.set('n', 'L', '$') -- Jump to end of line
@@ -62,7 +62,7 @@ keymap.set("n", "<C-h>", "<cmd>lua require('fzf-lua').live_grep()<CR>", { silent
 keymap.set("n", "<C-o>", "<cmd>lua require('fzf-lua').files{}<CR>", { silent = true })
 
 -- Telescope
-keymap.set("n", "<Leader>fe", "<cmd> Telescope file_browser <CR>")
+-- keymap.set("n", "<Leader>fe", "<cmd> Telescope file_browser <CR>")
 keymap.set("n", "<Leader>ff", "<cmd> Telescope find_files <CR>")
 keymap.set("n", "<Leader>fo", "<cmd> Telescope oldfiles <CR>")
 keymap.set("n", "<Leader>fw", "<cmd> Telescope live_grep <CR>")
