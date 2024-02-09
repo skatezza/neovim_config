@@ -7,72 +7,80 @@ end
 vim.cmd [[packadd packer.nvim]]
 
 return require('packer').startup(function(use)
-  -- Essential or core plugins
+  -- Packer can manage itself
   use 'wbthomason/packer.nvim'
-  use 'nvim-lua/plenary.nvim'     -- Common utilities
 
-  -- Colorschemes and UI-related
-  use { "catppuccin/nvim", as = "catppuccin" }
-  use 'keiyakeiya/PapilioDehaanii.vim'
-  use 'junegunn/limelight.vim'
-  use 'folke/zen-mode.nvim'
+  -- UI enhancements
+  use { 'catppuccin/nvim', as = "catppuccin" }
+  use 'nvim-lualine/lualine.nvim'
   use 'akinsho/nvim-bufferline.lua'
+  use 'norcalli/nvim-colorizer.lua'
+  use { 'ibhagwan/fzf-lua', requires = { 'nvim-tree/nvim-web-devicons' } }
   use 'lewis6991/gitsigns.nvim'
-  use 'nvim-lualine/lualine.nvim' -- Statusline
+  use 'folke/zen-mode.nvim'
+  use 'terryma/vim-smooth-scroll'
 
-  -- Language specific and formatting
-  use 'fatih/vim-go'
+  -- Language support and syntax highlighting
   use 'pangloss/vim-javascript'
-  use 'othree/html5.vim'
   use 'evanleck/vim-svelte'
-  use 'vimwiki/vimwiki'
-  use 'MunifTanjim/prettier.nvim'
+  use 'othree/html5.vim'
+  use 'fatih/vim-go'
+  use 'digitaltoad/vim-pug'
+  use 'jlcrochet/vim-razor'
+  use 'vim-crystal/vim-crystal'
+
+  -- LSP, Autocomplete, and Snippets
+  use 'neovim/nvim-lspconfig'
+  use 'williamboman/mason.nvim'
+  use 'williamboman/mason-lspconfig.nvim'
+  use 'hrsh7th/nvim-cmp'
+  use 'hrsh7th/cmp-nvim-lsp'
+  use 'hrsh7th/cmp-buffer'
+  use 'L3MON4D3/LuaSnip'
+  use 'saadparwaiz1/cmp_luasnip'
+  use 'rafamadriz/friendly-snippets'
+  use 'onsails/lspkind-nvim'
+
+  -- Treesitter
+  use {
+    'nvim-treesitter/nvim-treesitter',
+    run = function() require('nvim-treesitter.install').update({ with_sync = true }) end,
+  }
+  use 'windwp/nvim-autopairs'
+  use 'windwp/nvim-ts-autotag'
+  use { 'JoosepAlviste/nvim-ts-context-commentstring' }
+  use { 'numToStr/Comment.nvim', requires = 'JoosepAlviste/nvim-ts-context-commentstring' }
+
+  -- Git integration
+  use 'tpope/vim-fugitive'
+  use 'dinhhuy258/git.nvim'
+
+  -- File and project navigation
+  use { 'nvim-telescope/telescope.nvim', tag = '0.1.4', requires = { 'nvim-lua/plenary.nvim' } }
+  use 'nvim-telescope/telescope-fzf-native.nvim'
+  use 'nvim-telescope/telescope-file-browser.nvim'
+  use { 'nvim-tree/nvim-tree.lua', requires = 'nvim-tree/nvim-web-devicons' }
+
+  -- Miscellaneous plugins
+  use 'mbbill/undotree'
+  use 'dstein64/vim-startuptime'
+  use 'nanotee/zoxide.vim'
+  use 'mg979/vim-visual-multi'
+  use { 'iamcco/markdown-preview.nvim', run = function() vim.fn["mkdp#util#install"]() end, }
+
+  -- Formatting and code quality
   use {
     'prettier/vim-prettier',
     run = 'yarn install --frozen-lockfile --production',
-    ft = { 'astro', 'golang', 'javascript', 'typescript', 'css', 'scss', 'json', 'graphql', 'markdown', 'php', 'python',
-      'vue', 'svelte', 'yaml', 'html' }
+    ft = { 'javascript', 'typescript', 'css', 'scss', 'json', 'graphql', 'markdown', 'vue', 'html' }
   }
 
-  -- LSP, Completion, and Syntax
-  use 'neovim/nvim-lspconfig' -- LSP
-  use 'hrsh7th/cmp-nvim-lsp'   -- nvim-cmp source for neovim's built-in LSP
-  use 'hrsh7th/cmp-buffer'     -- nvim-cmp source for buffer words
-  use 'hrsh7th/nvim-cmp'       -- Completion
-  use 'jose-elias-alvarez/null-ls.nvim'
-  use 'windwp/nvim-ts-autotag'
-  use 'nvim-treesitter/nvim-treesitter'
-
-  -- Git and version control
-  use 'tpope/vim-fugitive'
-  use 'lewis6991/gitsigns.nvim'
-  use 'dinhhuy258/git.nvim'
-
-  -- Navigation and File Management
-  use 'nvim-tree/nvim-web-devicons'
-  use { 'nvim-tree/nvim-tree.lua', requires = { 'nvim-tree/nvim-web-devicons' } }
+  -- Additional utilities and enhancements
+  use 'subnut/vim-iawriter'
+  use 'junegunn/limelight.vim'
   use 'junegunn/fzf.vim'
-  use 'vijaymarupudi/nvim-fzf'
-  use 'vijaymarupudi/nvim-fzf-commands'
-  use 'nanotee/zoxide.vim'
-
-  -- Additional Utilities
   use 'tpope/vim-repeat'
   use 'tpope/vim-commentary'
   use 'tpope/vim-endwise'
-  use 'kqito/vim-easy-replace'
-  use 'terryma/vim-smooth-scroll'
-  use 'mbbill/undotree'
-  use 'windwp/nvim-autopairs'
-  use 'mg979/vim-visual-multi'
-  use 'norcalli/nvim-colorizer.lua'
-  use({
-    "roobert/tailwindcss-colorizer-cmp.nvim",
-    config = function()
-      require("tailwindcss-colorizer-cmp").setup({ color_square_width = 2 })
-    end
-  })
-  require("cmp").config.formatting = {
-    format = require("tailwindcss-colorizer-cmp").formatter
-  }
+  use 'Shougo/unite.vim'
 end)

@@ -1,6 +1,6 @@
 vim.opt.cursorline = true
 vim.opt.termguicolors = true
-vim.opt.winblend = 0
+vim.opt.winblend = 1
 vim.opt.wildoptions = 'pum'
 vim.opt.pumblend = 5
 vim.opt.background = 'dark'
@@ -19,6 +19,6 @@ vim.cmd [[
   augroup END
 ]]
 
--- set Neovim bg to Terminal bg
-vim.cmd("hi Normal ctermbg=NONE guibg=NONE")
-vim.cmd("hi NonText ctermbg=NONE guibg=NONE")
+-- -- set Neovim bg to Terminal bg
+-- vim.cmd("hi Normal ctermbg=NONE guibg=NONE")
+-- vim.cmd("hi NonText ctermbg=NONE guibg=NONE")

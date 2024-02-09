@@ -14,7 +14,7 @@ vim.g.open_command = 'brave %s'
 vim.opt.termguicolors = true
 vim.scriptencoding = 'utf-8'
 vim.opt.background = "dark" -- set this to dark or light
-vim.cmd.colorscheme "oxocarbon"
+vim.cmd.colorscheme "solarized-osaka"
 vim.opt.encoding = 'utf-8'
 vim.opt.fileencoding = 'utf-8'
 vim.wo.number = true
@@ -74,3 +74,13 @@ vim.api.nvim_create_autocmd("InsertLeave", {
 
 -- Add asterisks in block comments
 vim.opt.formatoptions:append { 'r' }
+
+-- Autocommand to format with Prettier on save for specific file types
+vim.api.nvim_create_autocmd("BufWritePre", {
+  pattern = { "*.js", "*.jsx", "*.ts", "*.tsx", "*.css", "*.json", "*.md" },
+  callback = function()
+    -- Command to run Prettier
+    vim.cmd("Prettier")
+  end,
+})
+

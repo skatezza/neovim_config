@@ -18,6 +18,7 @@ ts.setup {
     "toml",
     "fish",
     "php",
+    "templ",
     "json",
     "yaml",
     "swift",
@@ -28,11 +29,11 @@ ts.setup {
   autotag = {
     enable = true,
   },
-  context_commentstring = {
-    enable         = true,
-    enable_autocmd = false,
-  }
+  -- Removed the context_commentstring configuration here
 }
+
+-- Add this line to set up ts_context_commentstring separately
+require('ts_context_commentstring').setup()
 
 local parser_config = require "nvim-treesitter.parsers".get_parser_configs()
 parser_config.vim.filetype_to_parsername = { "javascript", "typescript.tsx" }

@@ -1,5 +1,6 @@
 -- Map wrapper for easy setting
 local keymap = vim.keymap
+-- local opts = { noremap = true, silent = true } -- Try to replace all later
 
 -- ## File Operations ##
 keymap.set('n', '<Leader><Space>', ':w<CR>') -- Save
@@ -9,6 +10,7 @@ keymap.set('n', '<C-Right>', ':tabnext<CR>') -- Move to the next tab
 keymap.set('n', '<C-Left>', ':tabprevious<CR>') -- Move to the previous tab
 
 -- ## Text Editing ##
+keymap.set('n', '<Leader>x', ":s/\\[ \\]/[x]/ | execute 's/$/ - '.strftime('%Y-%m-%d %H:%M:%S')<CR>", { noremap = true, silent = true })
 keymap.set('n', '<C-a>', 'gg<S-v>G') -- Select all
 keymap.set('n', 'U', '<C-R>', { noremap = true, silent = true }) -- Redo
 keymap.set('n', 'dw', 'vb"_d') -- Delete a word backwards
@@ -33,7 +35,7 @@ keymap.set('n', '<C-d>', '<C-d>zz') -- Scroll down
 keymap.set('n', '<C-u>', '<C-u>zz') -- Scroll up
 keymap.set('n', '<Leader>f', '/', { noremap = true, silent = true }) -- Search
 keymap.set('n', '<C-f>', '/', { noremap = true, silent = true }) -- Search
-keymap.set('n', '+', '<C-l>') -- Increment
+keymap.set('n', '+', '<C-=>') -- Increment
 keymap.set('n', '-', '<C-x>') -- Decrement
 keymap.set('n', 'H', '^') -- Jump to start of line
 keymap.set('n', 'L', '$') -- Jump to end of line
