@@ -72,14 +72,12 @@ return require('packer').startup(function(use)
   use 'dstein64/vim-startuptime'
   use 'nanotee/zoxide.vim'
   use 'mg979/vim-visual-multi'
-  use { 'iamcco/markdown-preview.nvim', run = function() vim.fn["mkdp#util#install"]() end, }
+  -- use { 'iamcco/markdown-preview.nvim', run = function() vim.fn["mkdp#util#install"]() end, }
 
   -- Formatting and code quality
-  use {
-    'prettier/vim-prettier',
-    run = 'yarn install --frozen-lockfile --production',
-    ft = { 'javascript', 'typescript', 'css', 'scss', 'json', 'graphql', 'markdown', 'vue', 'html' }
-  }
+  use {'jose-elias-alvarez/null-ls.nvim',
+  requires = { 'nvim-lua/plenary.nvim' }}
+  use('MunifTanjim/prettier.nvim')
 
   -- Additional utilities and enhancements
   use 'subnut/vim-iawriter'

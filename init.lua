@@ -6,6 +6,7 @@ vim.loader.enable()
 require('plugins')
 require('maps')
 require('base')
+require('null-ls')
 require('highlights')
 require('scrollsettings')
 

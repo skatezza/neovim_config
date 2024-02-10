@@ -74,13 +74,3 @@ vim.api.nvim_create_autocmd("InsertLeave", {
 
 -- Add asterisks in block comments
 vim.opt.formatoptions:append { 'r' }
-
--- Autocommand to format with Prettier on save for specific file types
-vim.api.nvim_create_autocmd("BufWritePre", {
-  pattern = { "*.js", "*.jsx", "*.ts", "*.tsx", "*.css", "*.json", "*.md" },
-  callback = function()
-    -- Command to run Prettier
-    vim.cmd("Prettier")
-  end,
-})
-

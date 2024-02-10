@@ -33,7 +33,6 @@ keymap.set('n', '<C-j>', '<C-d>zz') -- Scroll down
 keymap.set('n', '<C-k>', '<C-u>zz') -- Scroll up
 keymap.set('n', '<C-d>', '<C-d>zz') -- Scroll down
 keymap.set('n', '<C-u>', '<C-u>zz') -- Scroll up
-keymap.set('n', '<Leader>f', '/', { noremap = true, silent = true }) -- Search
 keymap.set('n', '<C-f>', '/', { noremap = true, silent = true }) -- Search
 keymap.set('n', '+', '<C-=>') -- Increment
 keymap.set('n', '-', '<C-x>') -- Decrement
