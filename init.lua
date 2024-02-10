@@ -2,10 +2,11 @@
 vim.g.mapleader = " "
 vim.loader.enable()
 
+-- Replace the minimal plugin setup with this
+require('plugins')
+require('maps')
 require('base')
 require('highlights')
-require('maps')
-require('plugins')
 require('scrollsettings')
 
 local has = vim.fn.has

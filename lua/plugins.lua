@@ -15,6 +15,12 @@ return require('packer').startup(function(use)
   use 'nvim-lualine/lualine.nvim'
   use 'akinsho/nvim-bufferline.lua'
   use 'norcalli/nvim-colorizer.lua'
+  use {
+    "craftzdog/solarized-osaka.nvim",
+    lazy = false,
+    priority = 1000,
+    opts = {},
+  }
   use { 'ibhagwan/fzf-lua', requires = { 'nvim-tree/nvim-web-devicons' } }
   use 'lewis6991/gitsigns.nvim'
   use 'folke/zen-mode.nvim'
@@ -57,7 +63,7 @@ return require('packer').startup(function(use)
 
   -- File and project navigation
   use { 'nvim-telescope/telescope.nvim', tag = '0.1.4', requires = { 'nvim-lua/plenary.nvim' } }
-  use 'nvim-telescope/telescope-fzf-native.nvim'
+  use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
   use 'nvim-telescope/telescope-file-browser.nvim'
   use { 'nvim-tree/nvim-tree.lua', requires = 'nvim-tree/nvim-web-devicons' }
 
